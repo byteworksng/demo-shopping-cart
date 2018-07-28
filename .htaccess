@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^chibuzorogbu.cba.pl$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.chibuzorogbu.cba.pl$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule ^(.*)$ /public/$1 [L]
+RewriteRule ^public/assets/ - [L,NC]
+RewriteRule ^(.*)$ public/index.php

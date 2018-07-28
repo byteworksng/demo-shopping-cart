@@ -1,0 +1,118 @@
+<?php
+/**
+ * Authored by Chibuzor Ogbu.
+ * Email: chibuzorogbu@gmail.com
+ * Date: 05/07/2018
+ * Time: 5:59 AM
+ */
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="<?= \App\Facade\Config::get('baseUri') . 'assets/css/style.css' ?>" rel="stylesheet">
+    <link href="<?= \App\Facade\Config::get('baseUri') . 'assets/css/star-rating.min.css' ?>" rel="stylesheet">
+    <link href="<?= \App\Facade\Config::get('baseUri') . 'assets/css/star-rating-theme.min.css' ?>" rel="stylesheet">
+
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title><?= $title ?></title>
+</head>
+
+<body>
+<!--Nav bar-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="<?= \App\Facade\Config::get('baseUri') ?>"><?= $title ?></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item m-auto">
+                    <a class="nav-link" href="<?= \App\Facade\Config::get('baseUri') ?>">Products</a>
+                </li>
+            </ul>
+
+            <div class="form-inline my-2 my-lg-0">
+                <div class="text-muted">
+                    <h5 class="mb-0">Wallet: $<span id="wallet"></span></h5>
+                </div>
+                <a class="btn btn-success btn-sm ml-3" href="<?= \App\Facade\Config::get('baseUri') . 'order/cart' ?>">
+                    <i class="fa fa-shopping-cart"></i> Cart
+                    <span class="badge badge-light" id="cart-count"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--loud header-->
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading"><?= strtoupper($title) ?> CART</h1>
+    </div>
+</section>
+
+<div class="container mb-4">
+    <?= $content ?>
+</div>
+
+<!-- Footer -->
+<footer class="text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 col-xl-5">
+                <h5>About</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <p class="mb-0">
+                    I'm a Software engineer with over 6 years cognate experience in both software development and
+                    product/project management.
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h5>Informations</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="https://golance.com/users/chibuzor.ogbu">GoLance</a></li>
+                    <li><a href="https://github.com/byteworksng">Github</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h5>Contact</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-home mr-2"></i> <?= $title ?></li>
+                    <li><i class="fa fa-envelope mr-2"></i>chibuzorogbu@gmail.com</li>
+                </ul>
+            </div>
+            <div class="col-12 copyright mt-3">
+                <p class="float-left">
+                    <a href="#">Back to top</a>
+                </p>
+                <p class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="#"><i>Chibuzor
+                            Ogbu</i></a> | <span>What Works</span></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="<?= \App\Facade\Config::get('baseUri') . 'assets/js/pace.min.js' ?>"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="<?= \App\Facade\Config::get('baseUri') . 'assets/js/star-rating.min.js' ?>"></script>
+<script src="<?= \App\Facade\Config::get('baseUri') . 'assets/js/star-rating-theme.min.js' ?>"></script>
+<script src="<?= \App\Facade\Config::get('baseUri') . 'assets/js/index.js' ?>"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?php
+/**
+ * Authored by Chibuzor Ogbu.
+ * Email: chibuzorogbu@gmail.com
+ * Date: 05/07/2018
+ * Time: 5:52 AM
+ */
+?>
+<form name="checkout" method="post" onsubmit="checkOut(event)">
+    <div class="row">
+
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped" data-table-data="<?= htmlspecialchars(json_encode($data)) ?>">
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Available</th>
+                        <th scope="col" class="text-center">Quantity</th>
+                        <th scope="col" class="text-right">Price</th>
+                        <th scope="col" class="text-right">Total</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($data as $index => $cart): ?>
+                        <tr data-cart-id="<?= $cart->cartId ?>">
+                            <td><img src="<?= $cart->img ?>"/></td>
+                            <td><?= $cart->name ?></td>
+                            <td>In stock</td>
+                            <td>
+                                <input class="form-control" name="cart[<?= $index ?>][qty]"
+                                       data-qty-index="<?= $index ?>"
+                                       onkeyup="sumLineTotal(event,'<?= $cart->cartId ?>' )" type="text"
+                                       value="<?= $cart->qty ?>"/>
+
+                            </td>
+                            <td class="text-right" data-price-index="<?= $index ?>"><?= $cart->price ?></td>
+                            <td class="text-right" data-total-index="<?= $index ?>"><?= $cart->total ?></td>
+                            <td class="text-right">
+                                <button class="btn btn-sm btn-danger"
+                                        onclick="removeItem(event, '<?= htmlspecialchars(json_encode($cart)) ?>',<?= $index ?> )">
+                                    <i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+
+                    <?php endforeach; ?>
+
+                    <input type="hidden" name="order[ref]" data-ref="<?= $order->ref ?>" value="<?= $order->ref ?>">
+
+
+                    <tr>
+                        <td colspan="4"></td>
+                        <td>Sub-Total</td>
+                        <td></td>
+                        <td class="text-right">$<span id="sub-total"><?= $order->subTotal ?></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td>Shipping</td>
+                        <td><select class="form-control" onchange="addShipping(event)" required>
+                                <option <?= $order->shipping === null ? 'selected' : '' ?> disabled>Choose Transport
+                                </option>
+                                <option value="0.00" <?= $order->shipping == "0.00" ? 'selected' : '' ?> >pick up
+                                </option>
+                                <option value="5.00" <?= $order->shipping == "5.00" ? 'selected' : '' ?>>UPS</option>
+                            </select></td>
+                        <td class="text-right">$<span id="shipping"><?= $order->shipping ?></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td><strong>Total</strong></td>
+                        <td></td>
+                        <td class="text-right"><strong>$<span id="gross-total"><?= $order->gross ?></span></strong></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col mb-2">
+            <div class="row">
+                <div class="col-sm-12  col-md-6">
+                    <a href="<?= \App\Facade\Config::get('baseUri') ?>" class="btn btn-block btn-light">Continue
+                        Shopping</a>
+                </div>
+                <div class="col-sm-12 col-md-6 text-right">
+                    <button type="submit" class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

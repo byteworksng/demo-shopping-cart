@@ -1,0 +1,80 @@
+<?php
+/**
+ * Authored by Chibuzor Ogbu.
+ * Email: chibuzorogbu@gmail.com
+ * Date: 07/07/2018
+ * Time: 2:53 AM
+ */
+?>
+
+<div class="row">
+    <div class="col-7 mr-1">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Thank You</h1>
+                <p>Your order has been received and is currently being processed.</p>
+                <div class="alert alert-info">
+                    <h5>Transaction Ref: <?= $order->txnId ?></h5>
+                    <p>Amount Paid: $<?= $order->gross ?></p>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                            aria-expanded="false" aria-controls="collapseExample">
+                        View Purchased Items
+                    </button>
+
+                </div>
+
+                <p>We are grateful for your business..</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 ">
+                <a href="<?= \App\Facade\Config::get('baseUri') ?>" class="btn btn-block btn-light">Continue
+                    Shopping</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped text-muted">
+                        <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Product</th>
+                            <th scope="col" class="text-right">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($orderItems as $item): ?>
+                            <tr>
+                                <td><img src="<?= $item->img ?>"/></td>
+                                <td><?= $item->name ?><br>
+                                    <?= $item->qty ?> x <?= $item->price ?>
+                                </td>
+                                <td class="text-right">$ <?= $item->total ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <tr>
+                            <td></td>
+                            <td>Sub-Total</td>
+                            <td class="text-right">$<?= $order->subTotal ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Shipping</td>
+                            <td class="text-right">$<?= $order->shipping ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>$<?= $order->gross ?></strong></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

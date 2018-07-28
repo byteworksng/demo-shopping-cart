@@ -1,0 +1,130 @@
+/*Index page item listing */
+.product {
+    background-position: 0 0;
+    transition: all 0.5s ease-in;
+    text-align: center;
+}
+
+.product-label {
+    font-size: 20px;
+    color: green;
+    margin-top: 250px;
+}
+
+.imgbox {
+    width: 260px;
+    height: 305px;
+    float: left;
+    padding: 6px;
+    margin: 30px 0 30px 40px;
+    border-radius: 10px;
+    background-color: #056bce;
+    transition: background-color 0.25s linear 0ms;
+    -webkit-transition: background-color 0.25s linear 0ms;
+    -o-transition: background-color 0.25s linear 0ms;
+    -moz-transition: background-color 0.25s linear 0ms;
+}
+
+.imgbox a {
+    text-decoration: none;
+}
+
+.imgbox:hover {
+    background-color: #babbbb;
+    transition: background-color 0.25s linear 0ms;
+    -webkit-transition: background-color 0.25s linear 0ms;
+    -o-transition: background-color 0.25s linear 0ms;
+    -moz-transition: background-color 0.25s linear 0ms;
+    box-shadow: 0 0 20px #000;
+    -webkit-box-shadow: 0 0 20px #000;
+    -moz-box-shadow: 0 0 20px #000;
+    -o-box-shadow: 0 0 20px #000;
+
+}
+
+.imgbox:hover .product {
+    border-color: #056bce;
+    transition: border-color 0.25s linear 0ms;
+    -webkit-transition: border-color 0.25s linear 0ms;
+    -moz-transition: border-color 0.25s linear 0ms;
+    -o-transition: border-color 0.25s linear 0ms;
+
+}
+
+.imgbox .product {
+    width: 250px;
+    height: 250px;
+    border: solid 5px #babbbb;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.25s linear 0ms;
+    -webkit-transition: border-color 0.25s linear 0ms;
+    -moz-transition: border-color 0.25s linear 0ms;
+    -o-transition: border-color 0.25s linear 0ms;
+
+}
+
+.imgbox .addcart {
+    width: 100%;
+    padding: 5px;
+    position: relative;
+
+}
+
+.addcart .rating-bar {
+    float: right;
+    color: white;
+    padding-right: 0;
+    padding-top: 0;
+}
+
+.addcart .rating-avg {
+    padding-right: 5px;
+    position: absolute;
+    right: 0;
+    top: 1.8em;
+    color: #e8e8e8;
+}
+
+.rating-bar {
+    padding: 10px;
+    position:relative;
+}
+.rating-bar .rater-link-overlay{
+    position: absolute;
+    background: transparent;
+    width: 100%;
+    top: 0;
+    z-index: 400;
+    height: 100%;
+}
+.rating-bar .rating-container {
+    font-size: 0.85em !important;
+}
+
+.rating-bar .fa-star {
+    color: yellow;
+}
+
+/*Cart table */
+table img {
+    max-width: 60px;
+}
+
+.reviews_product .fa-star {
+    color: gold;
+}
+
+/*Footer area*/
+footer {
+    background: #343a40;
+    padding: 40px;
+}
+
+footer a {
+    color: #f8f9fa !important
+}
+
+.center {
+    margin: 0 auto;
+}

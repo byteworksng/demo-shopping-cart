@@ -1,0 +1,68 @@
+<?php
+/**
+ * Authored by Chibuzor Ogbu.
+ * Email: chibuzorogbu@gmail.com
+ * Date: 07/07/2018
+ * Time: 2:53 AM
+ */
+?>
+
+<div class="row">
+    <div class="col-6 mr-5">
+        <div class="table-responsive">
+            <table class="table table-striped text-muted">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Product</th>
+                    <th scope="col" class="text-center">Quantity</th>
+                    <th scope="col" class="text-right">Price</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <?php foreach ($lineItems as $item): ?>
+                    <tr>
+                        <td><img src="<?= $item->img ?>"/></td>
+                        <td><?= $item->name ?></td>
+                        <td><?= $item->qty ?> x <?= $item->price ?></td>
+                        <td class="text-right">$<?= $item->total ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Sub-Total</td>
+                    <td class="text-right">$<?= $order->subTotal ?></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Shipping</td>
+                    <td class="text-right">$<?= $order->shipping ?></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><strong>Total</strong></td>
+                    <td class="text-right"><strong>$<?= $order->gross ?></strong></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col mb-2">
+        <div class="row">
+            <div class="col-sm-12  col-md-7">
+                <h1>Review Purchase</h1>
+                <p>A good time to confirm we have got all you asked for</p>
+                <small>You may proceed to pay for your purchase</small>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-12  col-md-7 ">
+                <button onclick="pay('<?= $order->ref ?>')" class="btn btn-block btn-light">Pay Now!</button>
+            </div>
+        </div>
+    </div>
+</div>
